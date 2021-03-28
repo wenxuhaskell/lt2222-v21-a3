@@ -47,15 +47,19 @@ def train(X, y, vocab, hiddensize, epochs=100):
 
     criterion = nn.NLLLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.01)
-
+    
     shuffler = __shuffler__(X, y)
 
     for epoch in range(epochs):
         Xt, yt = next(shuffler)
         
+        print(Xt.shape)
+        print(yt.shape)
         optimizer.zero_grad()
         outputs = model(Xt.unsqueeze(0))
+
         loss = criterion(outputs.squeeze(0), yt)
+
         loss.backward()
         optimizer.step()
 

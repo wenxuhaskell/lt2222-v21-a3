@@ -51,6 +51,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     q = a(args.m)
+    print(args.k)
+    print(args.r)
     w = b(q[0], q[1])
     t = train(w[0], w[1], q[1], args.k, args.r)
 
