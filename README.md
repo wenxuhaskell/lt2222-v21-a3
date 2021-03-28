@@ -57,7 +57,7 @@ When the number of epoches (e) increases, the accuracy goes up and down. Its lon
 
 ## Bonuses
 
-# Bonus Part A: Perplexity (4 points)
+## Bonus Part A: Perplexity (4 points)
 
 It is implemented under the folder bonusa.
 
@@ -91,12 +91,12 @@ Obviously the overfitting caused by too many epochs make the model very confused
 
 
 
-# Bonus Part B: Sequence (15 points)
+## Bonus Part B: Sequence (15 points)
 
 Not implemented.
 
 
-# Bonus Part C: Dropout (3 points)
+## Bonus Part C: Dropout (3 points)
 
 The dropout is implemented under the folder bonusc. The dropout operation takes place after 2nd and 3rd layer of the neural network.
 
