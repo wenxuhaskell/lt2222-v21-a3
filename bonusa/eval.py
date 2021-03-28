@@ -86,3 +86,15 @@ if __name__ == "__main__":
     test_y_df = pd.Series(y_t)
     accuracy = len(test_y_df[predictions==test_y_df])/len(test_y_df)
     print("Accuracy of prediction is: " + str(accuracy))
+   
+    # calculate perplexity
+    pred_np = outputs.squeeze(0).detach().numpy()
+    x, _ = pred_np.shape
+    
+    p_sum1 = pred_np.sum(axis=0)/x
+    p_sum2 = p_sum1.sum() / len(vowels) * (-1)
+    
+    perplexity = np.exp2(p_sum2)   
+    print("Perplexity of the model is: ")
+    print(perplexity.astype(int))
+    

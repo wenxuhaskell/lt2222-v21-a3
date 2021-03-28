@@ -17,6 +17,17 @@ h: filename of the storage of the neural network model learnt by training.
 
 ## Part 2
 
+It is implemented under current directory.
+
+To train the model and save it in model.pt, run
+
+python3 train.py --k 200 --r 100 svtrain.lower.txt model.pt
+
+To evaluate the trained model above and write the predictions back to out.txt, run 
+
+python3 eval.py svtest.lower.txt model.pt out.txt
+
+
 ## Part 3
 
 Five variations of k when e = 100.
@@ -45,6 +56,40 @@ When the number of epoches (e) increases, the accuracy goes up and down. Its lon
 
 
 ## Bonuses
+
+Bonus Part A: Perplexity (4 points)
+
+The eval.py implemented the calculation of the perplexity of the trained model for the test data set. The perplexity value is high which means that the trained model has difficult to decide for the given test data.
+
+Five variations of k when e = 100.
+
+| e = 100 |                 |                |                |                |                |
+|--------------|-----------------|----------------|----------------|----------------|----------------|
+|              | k=100        | k=150       |      k=200       | k=250       |        k=300       |
+|==============|-----------------|----------------|----------------|----------------|----------------|
+| Loss        | 11.0430 | 10.9698 |  10.9065 |  10.8655 | 10.8266 |
+| Accuracy | 0.1099  | 0.1119  | 0.1176   | 0.1242    | 0.1390 |
+| Perplexity | 5134    | 4893     | 5334      | 5920       | 5965 |
+
+
+Five variations of e when k = 200.
+
+| k = 200 |                 |                |                |                |                |
+|--------------|-----------------|----------------|----------------|----------------|----------------|
+|              | e=50        | e=100       |      e=150       | e=200       |        e=250       |
+|==============|-----------------|----------------|----------------|----------------|----------------|
+| Loss        | 11.2660 | 10.9065 | 10.7003 | 10.6114 | 10.5572 |
+| Accuracy | 0.1300  | 0.1176   | 0.1195   | 0.1187   | 0.1608 |
+| Perplexity | 4133    | 5334      | 6173    | 13570    | 24463 |
+
+
+Obviously the overfitting caused by too many epochs make the model very confused when testing with the test data set.
+
+
+
+Bonus Part B: Sequence (15 points)
+
+Not implemented.
 
 
 Bonus Part C: Dropout (3 points)
