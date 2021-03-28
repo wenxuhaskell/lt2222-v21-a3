@@ -59,7 +59,11 @@ When the number of epoches (e) increases, the accuracy goes up and down. Its lon
 
 Bonus Part A: Perplexity (4 points)
 
-The eval.py implemented the calculation of the perplexity of the trained model for the test data set. The perplexity value is high which means that the trained model has difficult to decide for the given test data.
+It is implemented under the folder bonusa.
+
+The eval.py implemented the calculation of the perplexity of the trained model for the test data set. The perplexity value is high which means that the trained model has difficulty to decide for the given test data.
+
+Experiments with calculation of perplexity:
 
 Five variations of k when e = 100.
 
@@ -121,7 +125,7 @@ Five variations of e when k = 200 (with dropout).
 
 With the dropout operation, we see that the loss becomes higher while accuracy does not change much.
 
-This is because the model trained by the network with dropout is less overfitted and more generalized.
+This is because the model trained by the network with dropout is a more generalized model
 
 
 ## Other notes
