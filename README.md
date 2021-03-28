@@ -3,7 +3,7 @@
 Your name: Wen Xu
 
 ## Part 1
-Function a: It read out the content of the given file f. Two values are returned by function a. The first is the content of the file with pre-fix as <s>, <s> and postfix as <e>, <e>. The second is the list of all letters in file f, i.e., the vocabulary.
+Function a: It read out the content of the given file f. Two values are returned by function a. The first is the content of the file with pre-fix as \<s\>, \<s\> and postfix as \<e\>, \<e\>. The second is the list of all letters in file f, i.e., the vocabulary.
 
 Function g: For a given character, it returns its one-hot encoding according to the vocabulary.
 
