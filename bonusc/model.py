@@ -1,3 +1,7 @@
+# model with dropouts.
+#
+#
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -13,15 +17,21 @@ class VowelModel(nn.Module):
         self.sigmoid = nn.Sigmoid()
         self.lin3 = nn.Linear(hiddensize, outputsize)
         self.softmax = nn.LogSoftmax(dim=1)
-
+        # Define proportion of neurons for dropout operation
+        self.dropout = nn.Dropout(0.25)
+        
         self.vocab = vocab
 
     def forward(self, x):
         x = self.lin1(x)
         x = self.tanh(x)
         x = self.lin2(x)
+        # dropout after 2nd layer
+        x = self.dropout(x)
         x = self.sigmoid(x)
         x = self.lin3(x)
+        # dropout after 3rd layer
+        x = self.dropout(x)
         x = self.softmax(x)
 
         return x

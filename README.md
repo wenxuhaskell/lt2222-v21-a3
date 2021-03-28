@@ -19,6 +19,8 @@ h: filename of the storage of the neural network model learnt by training.
 
 ## Part 3
 
+Five variations of k when e = 100.
+
 | e = 100 |                 |                |                |                |                |
 |--------------|-----------------|----------------|----------------|----------------|----------------|
 |              | k=100        | k=150       |      k=200       | k=250       |        k=300       |
@@ -26,8 +28,11 @@ h: filename of the storage of the neural network model learnt by training.
 | Loss        | 11.0559 | 10.9636 |  10.8984 |  10.8548 | 10.8291 |
 | Accuracy | 0.1139  | 0.1149   | 0.1132    | 0.1036    | 0.1201 |
 
+We can tell the loss is decreasing when k (the size of neural networks) increases. However the long term trend of accuracy of model on the test set descreases when k increases. This shows that overfitting happens when keep increasing the size of neural networks. 
 
 
+
+Five variations of e when k = 200.
 
 | k = 200 |                 |                |                |                |                |
 |--------------|-----------------|----------------|----------------|----------------|----------------|
@@ -36,8 +41,42 @@ h: filename of the storage of the neural network model learnt by training.
 | Loss        | 11.2612 | 10.8984 | 10.6976 | 10.6066 | 10.5578 |
 | Accuracy | 0.1714  | 0.1132   | 0.1349   | 0.1142   | 0.1447 |
 
+When the number of epoches (e) increases, the accuracy goes up and down. Its long term trends seem to descrease when e continuously increases. This is also due to overfitting where the model does not learn more from the data but instead try to remember it.
 
 
 ## Bonuses
+
+
+Bonus Part C: Dropout (3 points)
+
+The dropout is implemented under the folder bonusc. The dropout operation takes place after 2nd and 3rd layer of the neural network.
+
+We did the same experiments as part 3 to evaluate the performance of dropout. 
+
+Five variations of k when e = 100 (with dropout).
+
+| e = 100 |                 |                |                |                |                |
+|--------------|-----------------|----------------|----------------|----------------|----------------|
+|              | k=100        | k=150       |      k=200       | k=250       |        k=300       |
+|==============|-----------------|----------------|----------------|----------------|----------------|
+| Loss        | 11.3154 | 11.2812 |  11.2546 |  11.2400 | 11.2366 |
+| Accuracy | 0.1429  | 0.1486   | 0.1213    | 0.1094    | 0.1135 |
+
+With the dropout operation, we see that the loss is higher and the accuracy becomes slighly higher too. 
+
+
+Five variations of e when k = 200 (with dropout).
+
+| k = 200 |                 |                |                |                |                |
+|--------------|-----------------|----------------|----------------|----------------|----------------|
+|              | e=50        | e=100       |      e=150       | e=200       |        e=250       |
+|==============|-----------------|----------------|----------------|----------------|----------------|
+| Loss        | 11.4171 | 11.2573 | 11.1500 | 11.0820 | 11.0306 |
+| Accuracy | 0.1056  | 0.1703   | 0.1177   | 0.0990   | 0.1617 |
+
+With the dropout operation, we see that the loss becomes higher while accuracy does not change much.
+
+This is because the model trained by the network with dropout is less overfitted and more generalized.
+
 
 ## Other notes
