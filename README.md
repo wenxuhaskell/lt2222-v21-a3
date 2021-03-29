@@ -125,7 +125,7 @@ Five variations of e when k = 200 (with dropout).
 | Loss        | 11.4171 | 11.2573 | 11.1500 | 11.0820 | 11.0306 |
 | Accuracy | 0.1056  | 0.1703   | 0.1177   | 0.0990   | 0.1617 |
 
-With the dropout operation, we see that the loss becomes higher while accuracy does not change much.
+With the dropout operation, we see that the loss becomes higher while accuracy sometimes reaches higher level.
 
 This is because the model trained by the network with dropout is a more generalized model
 
