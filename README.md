@@ -36,11 +36,10 @@ Five variations of k when e = 100.
 |--------------|-----------------|----------------|----------------|----------------|----------------|
 |              | k=100        | k=150       |      k=200       | k=250       |        k=300       |
 |==============|-----------------|----------------|----------------|----------------|----------------|
-| Loss        | 11.0559 | 10.9636 |  10.8984 |  10.8548 | 10.8291 |
-| Accuracy | 0.1139  | 0.1149   | 0.1132    | 0.1036    | 0.1201 |
+| Loss        | 11.0568 | 10.9780 |  10.9133 |  10.8594 | 10.8267 |
+| Accuracy | 0.1389  | 0.1047   | 0.1366    | 0.0950    | 0.0951 |
 
 We can tell the loss is decreasing when k (the size of neural networks) increases. However the long term trend of accuracy of model on the test set descreases when k increases. This shows that overfitting happens when keep increasing the size of neural networks. 
-
 
 
 Five variations of e when k = 200.
@@ -49,10 +48,13 @@ Five variations of e when k = 200.
 |--------------|-----------------|----------------|----------------|----------------|----------------|
 |              | e=50        | e=100       |      e=150       | e=200       |        e=250       |
 |==============|-----------------|----------------|----------------|----------------|----------------|
-| Loss        | 11.2612 | 10.8984 | 10.6976 | 10.6066 | 10.5578 |
-| Accuracy | 0.1714  | 0.1132   | 0.1349   | 0.1142   | 0.1447 |
+| Loss        | 11.2633 | 10.9169 | 10.6901 | 10.6084 | 10.5558 |
+| Accuracy | 0.1243  | 0.1385   | 0.1180   | 0.1336   | 0.1382 |
 
 When the number of epoches (e) increases, the accuracy goes up and down. Its long term trends seem to descrease when e continuously increases. This is also due to overfitting where the model does not learn more from the data but instead try to remember it.
+
+
+The best model (t_k100_e100.pt) shows up when k=100 and e=100. The output file is out_k100_e100.txt. We can't identify any specific paterns from it due to the very low accuracy.
 
 
 ## Bonuses
@@ -71,9 +73,9 @@ Five variations of k when e = 100.
 |--------------|-----------------|----------------|----------------|----------------|----------------|
 |              | k=100        | k=150       |      k=200       | k=250       |        k=300       |
 |==============|-----------------|----------------|----------------|----------------|----------------|
-| Loss        | 11.0430 | 10.9698 |  10.9065 |  10.8655 | 10.8266 |
-| Accuracy | 0.1099  | 0.1119  | 0.1176   | 0.1242    | 0.1390 |
-| Perplexity | 5134    | 4893     | 5334      | 5920       | 5965 |
+| Loss        | 11.0527 | 10.9708 |  10.9129 |  10.8165 | 10.8175 |
+| Accuracy | 0.1337  | 0.1316  | 0.1636   | 0.1118     | 0.1153 |
+| Perplexity | 4420    |  4550    | 5583      |  5974      | 5184 |
 
 
 Five variations of e when k = 200.
@@ -82,14 +84,14 @@ Five variations of e when k = 200.
 |--------------|-----------------|----------------|----------------|----------------|----------------|
 |              | e=50        | e=100       |      e=150       | e=200       |        e=250       |
 |==============|-----------------|----------------|----------------|----------------|----------------|
-| Loss        | 11.2660 | 10.9065 | 10.7003 | 10.6114 | 10.5572 |
-| Accuracy | 0.1300  | 0.1176   | 0.1195   | 0.1187   | 0.1608 |
-| Perplexity | 4133    | 5334      | 6173    | 13570    | 24463 |
+| Loss        | 11.2582 | 10.9129 | 10.6948 | 10.6050 | 10. 5535|
+| Accuracy | 0. 1224 | 0.1636   | 0.1232   | 0.1329   | 0.1122 |
+| Perplexity | 3976    |  5583     |  6851     |  13168    |  14155   |
 
 
 Obviously the overfitting caused by too many epochs make the model very confused when testing with the test data set.
 
-
+The best model (p_k200_e100.pt) comes up when k=200 and e=100. The output file is out_k200_e100.txt. We can't see particular pattern in the output file.
 
 ## Bonus Part B: Sequence (15 points)
 
