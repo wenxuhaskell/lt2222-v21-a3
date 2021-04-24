@@ -34,10 +34,13 @@ def b(u, p):
             continue
         
         h2 = vowels.index(u[v+4])
-        gt.append(h2)        
         r = np.concatenate([g(x, p) for x in [u[v], u[v+1], u[v+2], u[v+3]]])
+        
         gr.append(r)
-
+        
+        t = np.concatenate([g(x, p) for x in [u[v+1], u[v+2], u[v+3], u[v+4]]])
+        gt.append(t)
+        
     return np.array(gr), np.array(gt)
         
 
@@ -52,6 +55,8 @@ if __name__ == "__main__":
 
     q = a(args.m)
     w = b(q[0], q[1])
+    print(w[0].shape)
+    print(w[1].shape)
     t = train(w[0], w[1], q[1], args.k, args.r)
 
     torch.save(t, args.h)

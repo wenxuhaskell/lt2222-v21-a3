@@ -17,7 +17,7 @@ class VowelModel(nn.Module):
         self.rnn = nn.RNN(featuresize, hiddensize, nlayers, batch_first=True)   
         # Fully connected layer
         self.fc = nn.Linear(hiddensize, outputsize)
-        self.softmax = nn.LogSoftmax(dim=1)
+#        self.softmax = nn.LogSoftmax(dim=1)
 
         self.vocab = vocab
 
@@ -31,7 +31,7 @@ class VowelModel(nn.Module):
         # Reshaping the outputs such that it can be fit into the fully connected layer
         out = out.contiguous().view(-1, self.hiddensize)
         out = self.fc(out)
-        out = self.softmax(out)
+#        out = self.softmax(out)
         return out, hidden
 
     def init_hidden(self, batchsize):
@@ -41,27 +41,30 @@ class VowelModel(nn.Module):
         return hidden
 
 def __shuffler__(X, y):
-    df = pd.DataFrame(X)
-    df['class'] = y
+#    dx = pd.DataFrame(X)
+#   dy = pdf.DataFrame
+#    df['class'] = y
     indices = list(range(X.shape[0]))
     total_len = int(len(indices))
     h = int(total_len/10)
     while True:
         s = random.randint(0,total_len - h - 1)
-        rearrangedf = df.iloc[indices[s : (s+h)]]
-        featuredf = rearrangedf.drop('class', axis=1)
-        classdf = rearrangedf['class']
-
-        yield torch.Tensor(featuredf.to_numpy()), torch.LongTensor(classdf.to_numpy())
+#       rearrangedf = df.iloc[indices[s : (s+h)]]
+#       featuredf = rearrangedf.drop('class', axis=1)
+#       classdf = rearrangedf['class']
+        featuredf = X[s:(s+h)]
+        classdf = y[s:(s+h)]
+        yield torch.Tensor(featuredf), torch.LongTensor(classdf)
         
 
 def train(X, y, vocab, hiddensize, epochs=50):
     inputsize = X.shape[1]
-    outputsize = int(y.max()) + 1
+    #outputsize = int(y.max()) + 1
+    outputsize = len(vocab)
     # RNN with 1 fully connected layer
     model = VowelModel(inputsize, hiddensize, outputsize, 1, vocab)
 
-    criterion = nn.NLLLoss()
+    criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.01)
     
     shuffler = __shuffler__(X, y)
@@ -72,6 +75,9 @@ def train(X, y, vocab, hiddensize, epochs=50):
         optimizer.zero_grad()
         outputs, hidden = model(Xt.unsqueeze(0))
 
+        print(outputs.squeeze(0).shape)
+        print(yt.shape)
+        
         loss = criterion(outputs.squeeze(0), yt)
 #        loss.requires_grad = True
         loss.backward()
