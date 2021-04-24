@@ -93,45 +93,6 @@ Obviously the overfitting caused by too many epochs make the model very confused
 
 The best model (p_k200_e100.pt) comes up when k=200 and e=100. The output file is out_k200_e100.txt. We can't see particular pattern in the output file.
 
-## Bonus Part B: Sequence (15 points)
-
-The sequence model is implemented in train.py under folder bonusb. The implementation includes the 4 characters before the current vowel as the feature. The model consists of only one hidden layer whose output will be input to the next round. During the training each epoch randomly use 10% of the trainning data set.
-
-The result from evaluation of the sequence model on test data set exhibits much less loss, significantly better accuracy and less perplexity.
-
-To train a model with a hidden layer of 300 neurons and 100 epoches:
-
-\> python3 train.py --k 300 --r 100 svtrain.lower.txt s_k300_e100.pt
-
-To evalute the model and write the predictions to  the file out_k300_e100.txt:
-
-\> python3 eval.py svtest.lower.txt s_k300_e100.pt out_k300_e100.txt
-
-Experiments:
-
-Five variations of k (size of hidden layer) when e = 100.
-
-| e = 100 |                 |                |                |                |                |
-|--------------|-----------------|----------------|----------------|----------------|----------------|
-|              | k=100        | k=150       |      k=200       | k=250       |        k=300       |
-|==============|-----------------|----------------|----------------|----------------|----------------|
-| Loss        | 1.5628 | 1.5561 |  1.6052 |  1.6805 | 1.7605 |
-| Accuracy | 0. 2439 | 0.2141 | 0.2240 | 0.2371 | 0.2640 |
-| Perplexity |  14       |  14       |   10      |  9         |    9       |
-
-
-Five variations of e (number of epoches) when k = 200.
-
-| k = 200 |                 |                |                |                |                |
-|--------------|-----------------|----------------|----------------|----------------|----------------|
-|              | e=50        | e=100       |      e=150       | e=200       |        e=250       |
-|==============|-----------------|----------------|----------------|----------------|----------------|
-| Loss        | 1.6814  | 1.6052 | 1.5661 | 1.5027 | 1.5797 |
-| Accuracy | 0. 2114 | 0.2240 | 0.2309 | 0.2197  | 0.2227 |
-| Perplexity |  9         |  10       | 12        |  14        |  11      |
-
-The best model is trained with a hidden layer of 100 neuros and 100 epoches.
-
 
 ## Bonus Part C: Dropout (3 points)
 
